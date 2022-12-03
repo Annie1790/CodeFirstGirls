@@ -5,62 +5,220 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Git Tutorial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="pixel-corners">
     <header>
-            Git Tutorial
+        <p>Git Tutorial</p>
     </header>
+
     <nav>
-        <div>
-            <a href="https://github.com/Annie1790"> <img src="./media/github Logo.png" alt="Github Logo"></a>
-            <a> <img src="./media/back to portfolio.png" alt="Back to Portfolio"></a>
-            <a> <img src="./media/back to games.png" alt="Back to Games"></a>
-            <a> <img src="./media/suprise.png" alt="Suprise!"></a>
-            <a> <img src="./media/bookmark.png" alt="Bookmark"></a>
-        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="https://github.com/Annie1790" class="nav-link">
+                    <img src="./media/github Logo.png" alt="Github Logo">
+                    <span class="link-text">Github</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="./media/back to portfolio.png" alt="Back to Portfolio">
+                    <span class="link-text">Back to Portfolio</span>
+                </a>
+
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="./media/back to games.png" alt="Back to Games">
+                    <span class="link-text">Back to Games</span>
+                </a>
+
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="./media/suprise.png" alt="Suprise!">
+                    <span class="link-text">Suprise!</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link"> <img src="./media/bookmark.png" alt="Bookmark">
+                    <span class="link-text">Bookmark Page</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link"> <img src="./media/about.png" alt="About">
+                    <span id="about" class="link-text">About</span>
+                </a>
+            </li>
+        </ul>
     </nav>
 
 
 
     <main>
         <article>
-            <p id="explanation"></p>
+            <h2>A tutorial introduction to Git</h2>
+            <p id="explanation">Git is a fast distributed revision control system.
+                This manual is designed to be readable by someone with basic UNIX command-line skills,
+                but no previous knowledge of Git.
+                This tutorial explains how to import a new project into Git, make changes to it,
+                and share changes with other developers.
+                This tutorial is suitable for <strong>Linux Debian/Ubuntu users.</strong>
+            </p>
+        </article>
+
+        <article>
+            <h2>Step 1: Update system</h2>
+            <code>[username@computername Repository]$ sudo apt update</code>
+            <code>[username@computername Repository]$ sudo apt upgrade</code>
+        </article>
+
+        <article>
+            <h2>Step 1.1: Install Git</h2>
+            <p class="explanation">You will likely have git installed already, but make sure
+                that we have the most up to date version of git, run the following commands:
+            </p>
+            <code>[username@computername Repository]$ sudo add-apt-repository ppa:git-core/ppa</code>
+            <code>[username@computername Repository]$ sudo apt update</code>
+            <code>[username@computername Repository]$ sudo apt install git</code>
+
+        </article>
+
+        <article>
+            <h2>Step 1.2: Verify Version </h2>
+            <p class="explanation">Make sure your git version is at least version by running this command:</p>
+            <code>[username@computername Repository]$ git --version</code>
+        </article>
+
+        <article>
+            <h2>Step 2: Configure Git and Github</h2>
+            <p>Go to GitHub.com and create an account! During the account setup,
+                it will ask you for an email address. This needs to be a real email,
+                and will be used by default to identify your contributions.</p>
+        </article>
+
+        <article>
+            <h2>Step 2.1: Setup Git</h2>
+            <p class="explanation">For Git to work properly, we need to let it know who we are so
+                that it can link a local Git user (you) to GitHub. When working on a team,
+                this allows people to see what you have committed and who committed each line of code.
+            </p>
+            <code>[username@computername Repository]$ git config --global user.name "Your Name"</code>
+            <code>[username@computername Repository]$ git config --global user.email "yourname@example.com"</code>
+            <p>GitHub recently changed the default branch on new repositories from master to main.
+                Change the default branch for Git using this command:</p>
+            <code>[username@computername Repository]$ git config --global init.defaultBranch main</code>
+            <p>To enable colorful output with git, type:</p>
+            <code>[username@computername Repository]$ git config --global color.ui auto</code>
+            <p>To verify that things are working properly,
+                enter these commands and verify whether the output matches your name and email address.</p>
+            <code>[username@computername Repository]$ git config --get user.name</code>
+            <code>[username@computername Repository]$ git config --get user.email</code>
+        </article>
+
+        <article>
+            <h2>Step 2.2: Create an SSH Key</h2>
+            <p>An SSH key is a cryptographically secure identifier. It is like a really long password used
+                to identify your machine. GitHub uses SSH keys to allow you to upload to your repository
+                without having to type in your username and password every time.
+                First, we need to see if you have an Ed25519 algorithm SSH key already installed.
+                Type this into the terminal and check the output with the information below:</p>
+            <code>[username@computername Repository]$ ls ~/.ssh/id_ed25519.pub</code>
+            <p>If a message appears in the console containing the text “No such file or directory”,
+                then you do not yet have an Ed25519 SSH key, and you will need to create one.
+                If no such message has appeared in the console output, you can proceed to next step.</p>
+            <p>To create a new SSH key, run the following command inside your terminal. </p>
+            <code>[username@computername Repository]$ ssh-keygen -t ed25519 -C "your email"</code>
+        </article>
+
+        <article>
+            <h2>Step 2.3: Link Your SSH Key with GitHub</h2>
+            <p class="explanation">Now, you need to tell GitHub what your SSH key
+                is so that you can push your code without typing in a password every time.</p>
+            <p>First, you will navigate to where GitHub receives our SSH key. Log into GitHub and click on
+                your profile
+                picture in the top right corner. Then, click on Settings in the drop-down menu.</p>
+            <p>Next, on the left-hand side, click SSH and GPG keys. Then, click the green button in the top right
+                corner that says New SSH Key. Name your key something that is descriptive enough for you to remember
+                where it came from. Leave this window open while you do the next steps.</p>
+            <p>Now you need to copy your public SSH key. To do this, we’re going to use a command called cat to read
+                the file to the console. (Note that the .pub file extension is important in this case.)</p>
+            <code>[username@computername Repository]$ cat ~/.ssh/id_ed25519.pub</code>
+            <p>Highlight and copy the output, which starts with ssh-ed25519 and ends with your email address.</p>
+            <p>Now, go back to GitHub in your browser window and paste the key you copied into the key field. Then,
+                click Add SSH key. You’re done! You’ve successfully added your SSH key!</p>
+
+        </article>
+
+        <article>
+            <h2>Step 3: Create a repository on Github</h2>
+            <p>Create a new repository on Github by clicking the "+" button on the top right corner</p>
+            <p>Give your repository the name “git_test” in the repository name input field. Check “Add a README
+                file”.
+                And then create the repository by clicking the green “Create repository” button at the bottom of the
+                page.</p>
+            <p>This will redirect you to your new repository on GitHub. To get ready to copy (clone) this repository
+                onto your local machine, click the green “Code” button. Then select the SSH option, and copy the
+                line below it.</p>
+            <p>Let’s use the command line on your local machine to create a new directory for all of your Odin
+                projects. Create a directory by entering these commands:</p>
+            <code>[username@computername Repository]$ mkdir repos</code>
+            <code>[username@computername Repository]$ cd repos</code>
+            <p>Now it’s time to clone your repository from GitHub onto your computer with git clone followed by the
+                URL you copied in the last step. </p>
+            <code>[username@computername Repository]$ git clone "copied link"</code>
+        </article>
+
+        <article>
+            <h2>Step 4:Use the git workflow</h2>
+            <p>Create a new file in the git_test folder called “hello_world.txt” with the command touch
+                hello_world.txt.</p>
+            <code>[username@computername Repository]$ touch hello_world.txt</code>
+            <p>Type git status in your terminal. In the output, notice that your hello_world.txt file is shown in
+                red, which means that this file is not staged.</p>
+            <code>[username@computername Repository]$ git status</code>
+            <p>Type git add hello_world.txt. This command adds your hello_world.txt file to the staging area in Git.
+                The staging area is part of the two-step process for making a commit in Git. Think of the staging
+                area as a “waiting room” for your changes until you commit them. Now, type git status again. In the
+                output, notice that your file is now shown in green, which means that this file is now in the
+                staging area</p>
+            <code>[username@computername Repository]$ git add hello_world.txt</code>
+            <p>Or if you wish to add all the changes:</p>
+            <code>[username@computername Repository]$ git add .</code>
+            <p>Type git commit -m "Add hello_world.txt" and then type git status once more. The output should now
+                say: “nothing to commit, working tree clean”, indicating your changes have been committed. Don’t
+                worry if you get a message that says “upstream is gone”. This is normal and only shows when your
+                cloned repository currently has no branches. It will be resolved once you have followed the rest of
+                the steps in this project.</p>
+            <code>[username@computername Repository]$ git commit -m "your message"</code>
+            <p>Type git push. To be more specific, type git push origin main. Since you are not dealing with another
+                branch (other than main) or a different remote (as mentioned above), you can leave it as git push to
+                save a few keystrokes.</p>
+            <code>[username@computername Repository]$ git push</code>
+            <p>Or</p>
+            <code>[username@computername Repository]$ git push origin main </code>
+            <p>That's it! You imported your newest changes into your repository!</p>
         </article>
         <article>
-            <p class="explanation"></p>
-        </article>
-        <article>
-            <code>git clone #your repository</code>
-        </article>
-        <article>
-            <p class="explanation"></p>
-        </article>
-        <article>
-            <code>git add .</code>
-        </article>
-        <article>
-            <p class="explanation"></p>
-        </article>
-        <article>
-            <code>git commit -m "#your message" </code>
-        </article>
-        <article>
-            <p class="explanation"></p>
-        </article>
-        <article>
-            <code>git push</code>
-        </article>
-        <article>
-            <p class="explanation"></p>
+            <h2>Thank you for reading!</h2>
         </article>
     </main>
 
-    <footer>Made by Annie1790</footer>
-</div>
+    <footer>
+        <p>Source:
+            <a href="https://git-scm.com/docs/gittutorial"> Link</a>
+            <a href="https://www.theodinproject.com/lessons/foundations-setting-up-git">Link</a>
+        </p>
+        <p>Design Made by Annie1790</p>
+    </footer>
+
 </body>
 
 </html>
