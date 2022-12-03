@@ -1,8 +1,20 @@
+/*Sections:
+0. Font face
+1. Body
+2. Header
+3. Nav bar and it's hover
+4. Popup, under construction and suprise
+5. Main
+6. Article
+7.Footer */
+
+
+/*0. Font face*/
 @font-face {
     font-family: Apple;
     src: url(./media/AppleGaramond-Light.ttf);
 }
-
+/*1. Body*/
 body {
     background-color: black;
     margin: 0;
@@ -29,6 +41,7 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(0, 0, 0);
 }
 
+/*2. Header*/
 header {
     grid-column-start: 1;
     grid-column-end: 4;
@@ -46,52 +59,7 @@ header>p {
     margin: 0;
 }
 
-.pixel-corners {
-    color: black;
-    clip-path: polygon(
-        0px 20px,
-        4px 20px,
-        4px 12px,
-        8px 12px,
-        8px 8px,
-        12px 8px,
-        12px 4px,
-        16px 4px,
-        20px 4px,
-        20px 0px,
-        calc(100% - 20px) 0px,
-        calc(100% - 20px) 4px,
-        calc(100% - 12px) 4px,
-        calc(100% - 12px) 8px,
-        calc(100% - 8px) 8px,
-        calc(100% - 8px) 12px,
-        calc(100% - 4px) 12px,
-        calc(100% - 4px) 16px,
-        calc(100% - 4px) 20px,
-        100% 20px,
-        100% calc(100% - 20px),
-        calc(100% - 4px) calc(100% - 20px),
-        calc(100% - 4px) calc(100% - 12px),
-        calc(100% - 8px) calc(100% - 12px),
-        calc(100% - 8px) calc(100% - 8px),
-        calc(100% - 12px) calc(100% - 8px),
-        calc(100% - 12px) calc(100% - 4px),
-        calc(100% - 16px) calc(100% - 4px),
-        calc(100% - 20px) calc(100% - 4px),
-        calc(100% - 20px) 100%,
-        20px 100%,
-        20px calc(100% - 4px),
-        12px calc(100% - 4px),
-        12px calc(100% - 8px),
-        8px calc(100% - 8px),
-        8px calc(100% - 12px),
-        4px calc(100% - 12px),
-        4px calc(100% - 16px),
-        4px calc(100% - 20px),
-        0px calc(100% - 20px)
-  );
-}
-
+/*3. Nav bar and it's hover*/
 nav {
     position: fixed;
     right: 0;
@@ -149,6 +117,10 @@ nav:hover .link-text {
     display: block;
 }
 
+/*4. Popup, under construction and suprise */
+/*Where the fun begins :)*/
+
+/*5. Main*/
 main {
     grid-column: 2;
     grid-row: 2;
@@ -158,6 +130,7 @@ main {
     padding-bottom: 1%;
 }
 
+/*6. Article*/
 main>article {
     display: flex;
     flex-direction: column;
@@ -183,6 +156,7 @@ main>article>code {
     min-width: 1.5em;
 }
 
+/*7. Footer*/
 footer {
     display: flex;
     flex-direction: row;

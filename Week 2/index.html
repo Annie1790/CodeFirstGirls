@@ -7,12 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Tutorial</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <header>
         <p>Git Tutorial</p>
     </header>
+
+    <div class="popup">
+        <div class="popup-header"></div>
+        <div class="popup-title"></div>
+        <button class="close-button">&times;X</button>
+        <div class="popup-body">ABCDEFGHJ</div>
+    </div>
+    <div id="overlay"></div>
 
     <nav>
         <ul class="navbar-nav">
@@ -24,7 +33,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a id="backToPortfolio" href="#" class="nav-link">
                     <img src="./media/back to portfolio.png" alt="Back to Portfolio">
                     <span class="link-text">Back to Portfolio</span>
                 </a>
@@ -32,7 +41,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a id="backToGames" href="#" class="nav-link">
                     <img src="./media/back to games.png" alt="Back to Games">
                     <span class="link-text">Back to Games</span>
                 </a>
@@ -40,21 +49,21 @@
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a id="suprise" href="#" class="nav-link">
                     <img src="./media/suprise.png" alt="Suprise!">
                     <span class="link-text">Suprise!</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link"> <img src="./media/bookmark.png" alt="Bookmark">
+                <a id="bookmark" href="#" class="nav-link"> <img src="./media/bookmark.png" alt="Bookmark">
                     <span class="link-text">Bookmark Page</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link"> <img src="./media/about.png" alt="About">
-                    <span id="about" class="link-text">About</span>
+                <a id="about" href="#" class="nav-link"> <img src="./media/about.png" alt="About">
+                    <span  class="link-text">About</span>
                 </a>
             </li>
         </ul>
